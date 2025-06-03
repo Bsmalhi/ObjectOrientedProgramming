@@ -22,7 +22,7 @@ jobs:
           uses: actions/setup-java@v2
           with:
             java-version: '21'
-            distribution: 'openjdk'
+            distribution: 'temurin'
 
         - name: build with maven
           run: mvn clean install -DskipTests
