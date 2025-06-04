@@ -11,11 +11,11 @@ public class Grid {
         initGrid();
     }
 
-    private void initGrid() {
+    void initGrid() {
         this.grid = new int[rows][columns];
         for(int i = 0; i < rows; i++){
             for (int j = 0; j < columns; j++) {
-                grid[rows][columns] = GridPosition.EMPTY.ordinal();
+                grid[i][j] = GridPosition.EMPTY.ordinal();
             }
         }
     }
@@ -28,7 +28,7 @@ public class Grid {
         return this.columns;
     }
 
-    // in connect four the piece always drops in the empty row
+    // in connect four the piece always drops in the empty row cell
     // and player picks the column
     public int placePiece(int column, GridPosition piece){
         if(column < 0 || column > this.columns)
@@ -77,7 +77,7 @@ public class Grid {
             if(c >= 0 && c < this.columns && grid[r][c] == piece.ordinal()){
                 count ++;
             } else {
-                count ++;
+                count = 0;
             }
             if(count == connectN)
                 return true;
